@@ -1,0 +1,21 @@
+<%= form_with model: @product, local: true do |f| %>
+  <p>
+    <%= f.label :name, 'Nome' %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :price, 'R$' %>
+    <%= f.number_field :price %>
+  </p>
+  
+  <p>
+    <%= f.label :available, 'Disponivel' %>
+    <%= f.select :available, [ :disponivel, :indisponivel ]%>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+  
+<% end %>

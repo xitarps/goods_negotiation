@@ -1,0 +1,32 @@
+<h2>Products list</h2>
+
+<p>
+  <%= link_to 'Adicionar', new_product_path %> |
+  <% if @owner == 'all' %>
+    <%= link_to 'Meus Produtos', products_path(owner: 'myself') %>
+  <% else %>
+    <%= link_to 'Todos Os Produtos', products_path(owner: 'all') %>
+  <% end %>
+</p>
+
+<hr style="background-color: blue; height: 5px">
+
+<% @products.each do |product| %>
+
+  <p>Nome: <%= link_to product.name, product %></p>
+  <p>valor: <%= number_to_currency product.price, precision: 1, unit: 'R$' %></p>
+  <p>status: <%= product.available %></p>
+  <p>owner: <%= product.user.email %></p>
+
+  <% if current_user.products.include? product %>
+    <p>
+      <%= link_to 'Editar', edit_product_path(product)%> |
+      <%= link_to 'Apagar', product, method: :delete %> 
+    </p>
+  <% else %>
+    <p>
+      <%= link_to 'Negociar', chats_path(product_id: product.id) %>
+    </p>
+  <% end %>
+  <hr>
+<% end %>

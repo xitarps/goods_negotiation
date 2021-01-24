@@ -1,0 +1,15 @@
+<h2>Product details</h2>
+
+<p>Nome: <%= @product.name %></p>
+<p>valor: <%= number_to_currency @product.price, precision: 1, unit: 'R$' %></p>
+<p>status: <%= @product.available %></p>
+
+<% if @chats %>
+  <% @chats.each do |chat| %>
+  <p><%= link_to chat.buyer.email , chat %></p>
+  <% end %>
+<% end %>
+
+<% unless current_user.products.include? @product %>
+  <%= link_to 'Negociar', chats_path(product_id: @product.id) %>
+<% end %>

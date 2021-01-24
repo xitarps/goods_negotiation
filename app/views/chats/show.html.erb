@@ -1,0 +1,24 @@
+<h2>Chat</h2>
+
+<p>Produto: <%= @chat.product.user.email %></p>
+<p>Dono: <%= @chat.product.name %></p>
+<p>Valor: <%= number_to_currency @chat.product.price, precision: 1, unit: 'R$' %></p>
+<p>Status: <%= @chat.product.available %></p>
+
+<%= form_with model: @message , local: true do |form| %>
+  <p><%= form.label :body, 'Mensagem' %></p>
+  <p><%= form.text_field :body %></p>
+
+  <%= form.hidden_field :chat, value: @chat.id %>
+  
+  <p><%= form.submit %></p>
+<% end %>
+
+<hr>
+
+<% @chat.messages.each do |message| %>
+  <p>
+    <%= message.user.email %> - 
+    <%= message.body %>
+  </p>
+<% end %>
