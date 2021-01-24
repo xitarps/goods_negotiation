@@ -45,6 +45,9 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # rails-erd - https://voormedia.github.io/rails-erd/
+  gem "rails-erd"
 end
 
 group :test do

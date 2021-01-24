@@ -1,25 +1,13 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # goods_negotiation
+Aplicação com intuito de testes para feature de troca de mensagens privadas(simples).
+
+Possivel criar:
+
+- Usuário
+- Produto
+- Chat
+
+## tecnologias:
+- ruby
+- rails
+- devise
